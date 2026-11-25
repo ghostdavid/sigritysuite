@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module SigritySuite.amm</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="SigritySuite.html" class="white">SigritySuite</a>.amm</strong></td>
+<td class="extra"><a href=".">index</a><br>(built-in)</td></tr></table>
+    <p><span class="code">Python&nbsp;APIs&nbsp;for&nbsp;Cadence&nbsp;Sigrity&nbsp;Suite&nbsp;AMM</span></p>
+<p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="SigritySuite.amm.html#AnalysisModelManager">amm.AnalysisModelManager</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="AnalysisModelManager">class <strong>AnalysisModelManager</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Class&nbsp;related&nbsp;to&nbsp;managing&nbsp;the&nbsp;analysis&nbsp;models.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="AnalysisModelManager-__delattr__"><strong>__delattr__</strong></a>(self, name, /)</dt><dd><span class="code">Implement&nbsp;delattr(self,&nbsp;name).</span></dd></dl>
+
+<dl><dt><a name="AnalysisModelManager-__getattribute__"><strong>__getattribute__</strong></a>(self, name, /)</dt><dd><span class="code">Return&nbsp;getattr(self,&nbsp;name).</span></dd></dl>
+
+<dl><dt><a name="AnalysisModelManager-__init__"><strong>__init__</strong></a>(self, /, *args, **kwargs)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="AnalysisModelManager-__setattr__"><strong>__setattr__</strong></a>(self, name, value, /)</dt><dd><span class="code">Implement&nbsp;setattr(self,&nbsp;name,&nbsp;value).</span></dd></dl>
+
+<dl><dt><a name="AnalysisModelManager-list_libraries"><strong>list_libraries</strong></a>(...)</dt><dd><span class="code"><a href="#AnalysisModelManager-list_libraries">list_libraries</a>(external:&nbsp;bool&nbsp;=&nbsp;False)&nbsp;-&gt;&nbsp;list[str]<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;filesystem&nbsp;paths&nbsp;of&nbsp;all&nbsp;currently&nbsp;loaded&nbsp;library&nbsp;bins.<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+external&nbsp;:&nbsp;bool,&nbsp;optional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;False&nbsp;(default),&nbsp;lists&nbsp;bins&nbsp;from&nbsp;the&nbsp;project&nbsp;library.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;True,&nbsp;lists&nbsp;bins&nbsp;from&nbsp;the&nbsp;external&nbsp;library.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+list[str]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Paths&nbsp;of&nbsp;loaded&nbsp;library&nbsp;bins,&nbsp;with&nbsp;forward&nbsp;slashes.<br>
+&nbsp;<br>
+Example<br>
+-------<br>
+&nbsp;&nbsp;mgr&nbsp;=&nbsp;amm.<a href="#-get_manager">get_manager</a>()<br>
+&nbsp;&nbsp;for&nbsp;path&nbsp;in&nbsp;mgr.<a href="#AnalysisModelManager-list_libraries">list_libraries</a>():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(path)<br>
+&nbsp;&nbsp;for&nbsp;path&nbsp;in&nbsp;mgr.<a href="#AnalysisModelManager-list_libraries">list_libraries</a>(True):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print('external:',&nbsp;path)</span></dd></dl>
+
+<dl><dt><a name="AnalysisModelManager-open_library"><strong>open_library</strong></a>(...)</dt><dd><span class="code"><a href="#AnalysisModelManager-open_library">open_library</a>(fileName:&nbsp;str,&nbsp;external:&nbsp;bool&nbsp;=&nbsp;False)&nbsp;-&gt;&nbsp;None<br>
+&nbsp;<br>
+Load&nbsp;analysis&nbsp;models&nbsp;from&nbsp;the&nbsp;specified&nbsp;AMM&nbsp;library&nbsp;file.<br>
+&nbsp;<br>
+Opens&nbsp;and&nbsp;imports&nbsp;device&nbsp;models&nbsp;(VRM,&nbsp;IC,&nbsp;inductor,&nbsp;resistor,&nbsp;etc.)&nbsp;from&nbsp;an&nbsp;Analysis&nbsp;Model&nbsp;Manager&nbsp;(AMM)&nbsp;library&nbsp;file&nbsp;into&nbsp;either&nbsp;the&nbsp;project&nbsp;library&nbsp;or&nbsp;external&nbsp;library.&nbsp;Use&nbsp;this&nbsp;to&nbsp;make&nbsp;pre-defined&nbsp;component&nbsp;models&nbsp;available&nbsp;for&nbsp;assignment&nbsp;in&nbsp;your&nbsp;design.<br>
+&nbsp;<br>
+Parameters<br>
+&nbsp;&nbsp;fileName:&nbsp;str&nbsp;-&nbsp;Full&nbsp;path&nbsp;to&nbsp;the&nbsp;AMM&nbsp;library&nbsp;file&nbsp;to&nbsp;load.<br>
+&nbsp;&nbsp;external:&nbsp;bool&nbsp;=&nbsp;False&nbsp;-&nbsp;If&nbsp;True,&nbsp;load&nbsp;into&nbsp;the&nbsp;external&nbsp;library;&nbsp;if&nbsp;False,&nbsp;load&nbsp;into&nbsp;the&nbsp;project&nbsp;library.<br>
+&nbsp;<br>
+Returns<br>
+&nbsp;&nbsp;None<br>
+&nbsp;<br>
+Example<br>
+&nbsp;&nbsp;import&nbsp;amm<br>
+&nbsp;<br>
+&nbsp;&nbsp;mgr&nbsp;=&nbsp;amm.<a href="#-get_manager">get_manager</a>()<br>
+&nbsp;&nbsp;#&nbsp;Load&nbsp;into&nbsp;project&nbsp;library<br>
+&nbsp;&nbsp;mgr.<a href="#AnalysisModelManager-open_library">open_library</a>('C:/models/vrm_models.amm')<br>
+&nbsp;&nbsp;#&nbsp;Load&nbsp;into&nbsp;external&nbsp;library<br>
+&nbsp;&nbsp;mgr.<a href="#AnalysisModelManager-open_library">open_library</a>('C:/models/external_models.amm',&nbsp;True)</span></dd></dl>
+
+<dl><dt><a name="AnalysisModelManager-remove_library"><strong>remove_library</strong></a>(...)</dt><dd><span class="code"><a href="#AnalysisModelManager-remove_library">remove_library</a>(path:&nbsp;str,&nbsp;external:&nbsp;bool&nbsp;=&nbsp;False)&nbsp;-&gt;&nbsp;None<br>
+&nbsp;<br>
+Remove&nbsp;a&nbsp;library&nbsp;bin&nbsp;from&nbsp;the&nbsp;project&nbsp;or&nbsp;external&nbsp;AMM&nbsp;library.<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+path&nbsp;:&nbsp;str<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Filesystem&nbsp;path&nbsp;of&nbsp;the&nbsp;library&nbsp;bin&nbsp;(.amm&nbsp;file)&nbsp;to&nbsp;remove.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Use&nbsp;<a href="#AnalysisModelManager-list_libraries">list_libraries</a>()&nbsp;to&nbsp;find&nbsp;the&nbsp;exact&nbsp;path.<br>
+external&nbsp;:&nbsp;bool,&nbsp;optional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;False&nbsp;(default),&nbsp;removes&nbsp;from&nbsp;the&nbsp;project&nbsp;library.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;True,&nbsp;removes&nbsp;from&nbsp;the&nbsp;external&nbsp;library.<br>
+&nbsp;<br>
+Example<br>
+-------<br>
+&nbsp;&nbsp;mgr&nbsp;=&nbsp;amm.<a href="#-get_manager">get_manager</a>()<br>
+&nbsp;&nbsp;#&nbsp;Remove&nbsp;from&nbsp;project&nbsp;library<br>
+&nbsp;&nbsp;mgr.<a href="#AnalysisModelManager-remove_library">remove_library</a>('C:/models/vrm_models.amm')<br>
+&nbsp;&nbsp;#&nbsp;Remove&nbsp;from&nbsp;external&nbsp;library<br>
+&nbsp;&nbsp;mgr.<a href="#AnalysisModelManager-remove_library">remove_library</a>('C:/models/external_models.amm',&nbsp;True)</span></dd></dl>
+
+<dl><dt><a name="AnalysisModelManager-search_models"><strong>search_models</strong></a>(...)</dt><dd><span class="code"><a href="#AnalysisModelManager-search_models">search_models</a>(model_type:&nbsp;str,&nbsp;properties:&nbsp;dict,&nbsp;lib_name:&nbsp;str&nbsp;=&nbsp;'all')&nbsp;-&gt;&nbsp;list[dict]<br>
+&nbsp;<br>
+Search&nbsp;loaded&nbsp;AMM&nbsp;libraries&nbsp;for&nbsp;models&nbsp;matching&nbsp;the&nbsp;given&nbsp;property&nbsp;filters.<br>
+&nbsp;<br>
+Each&nbsp;entry&nbsp;in&nbsp;the&nbsp;result&nbsp;list&nbsp;is&nbsp;a&nbsp;dict&nbsp;with&nbsp;keys:<br>
+&nbsp;&nbsp;'model_name'&nbsp;:&nbsp;str&nbsp;&nbsp;-&nbsp;The&nbsp;Part&nbsp;No.&nbsp;/&nbsp;model&nbsp;identifier&nbsp;in&nbsp;the&nbsp;library.<br>
+&nbsp;&nbsp;'lib'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;str&nbsp;&nbsp;-&nbsp;'project'&nbsp;for&nbsp;the&nbsp;project&nbsp;library,&nbsp;or&nbsp;the&nbsp;file&nbsp;path&nbsp;for&nbsp;external&nbsp;libs.<br>
+&nbsp;<br>
+Parameters<br>
+&nbsp;&nbsp;model_type&nbsp;:&nbsp;str&nbsp;&nbsp;-&nbsp;Model&nbsp;category.&nbsp;One&nbsp;of:&nbsp;IC,&nbsp;capacitor,&nbsp;inductor,&nbsp;resistor,&nbsp;VRM,&nbsp;connector,&nbsp;package,&nbsp;Spice.<br>
+&nbsp;&nbsp;properties&nbsp;:&nbsp;dict&nbsp;-&nbsp;Property&nbsp;filters.&nbsp;Keys&nbsp;are&nbsp;property&nbsp;names;&nbsp;values&nbsp;are&nbsp;either&nbsp;a&nbsp;plain&nbsp;string/number<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(uses&nbsp;'='&nbsp;operator)&nbsp;or&nbsp;a&nbsp;2-tuple&nbsp;(operator,&nbsp;value)&nbsp;where&nbsp;operator&nbsp;is&nbsp;one&nbsp;of&nbsp;=,&nbsp;&lt;,&nbsp;&lt;=,&nbsp;&gt;,&nbsp;&gt;=.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;filters&nbsp;are&nbsp;AND-combined.&nbsp;Value&nbsp;strings&nbsp;accept&nbsp;unit&nbsp;suffixes&nbsp;(e.g.&nbsp;'100n'&nbsp;for&nbsp;100&nbsp;nF).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Capacitor&nbsp;properties:&nbsp;capSize,&nbsp;capCNOM,&nbsp;capVoltage,&nbsp;capTCC,&nbsp;capPref,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;capCompCost,&nbsp;capMountCost,&nbsp;capBomCost,&nbsp;capArea,&nbsp;upperTol,&nbsp;lowerTol,&nbsp;comment.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Common&nbsp;properties&nbsp;(all&nbsp;types):&nbsp;modelName,&nbsp;manufacturer,&nbsp;mfgPartNo,&nbsp;lookupKeyword.<br>
+&nbsp;&nbsp;lib_name&nbsp;&nbsp;&nbsp;:&nbsp;str&nbsp;&nbsp;-&nbsp;Library&nbsp;scope&nbsp;(default&nbsp;'all'):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'all'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;search&nbsp;project&nbsp;library&nbsp;first,&nbsp;then&nbsp;external.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'project'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;project&nbsp;library&nbsp;only.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'externalAll'&nbsp;-&nbsp;all&nbsp;external&nbsp;lib&nbsp;bins.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&lt;path&gt;'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;specific&nbsp;external&nbsp;lib&nbsp;bin&nbsp;by&nbsp;name&nbsp;or&nbsp;path.<br>
+&nbsp;<br>
+Returns<br>
+&nbsp;&nbsp;list[dict]&nbsp;&nbsp;-&nbsp;Matching&nbsp;models,&nbsp;each&nbsp;{'model_name':&nbsp;str,&nbsp;'lib':&nbsp;str}.&nbsp;Empty&nbsp;list&nbsp;if&nbsp;none&nbsp;found.<br>
+&nbsp;<br>
+Example<br>
+&nbsp;&nbsp;import&nbsp;amm<br>
+&nbsp;<br>
+&nbsp;&nbsp;mgr&nbsp;=&nbsp;amm.<a href="#-get_manager">get_manager</a>()<br>
+&nbsp;&nbsp;mgr.<a href="#AnalysisModelManager-open_library">open_library</a>('C:/models/caps.amm',&nbsp;True)<br>
+&nbsp;<br>
+&nbsp;&nbsp;#&nbsp;Find&nbsp;all&nbsp;0402E&nbsp;/&nbsp;100&nbsp;nF&nbsp;capacitors&nbsp;rated&nbsp;&gt;=&nbsp;6.3&nbsp;V&nbsp;with&nbsp;X7R&nbsp;dielectric<br>
+&nbsp;&nbsp;results&nbsp;=&nbsp;mgr.<a href="#AnalysisModelManager-search_models">search_models</a>(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'capacitor',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{'capSize':&nbsp;'0402E',&nbsp;'capCNOM':&nbsp;'100n',&nbsp;'capVoltage':&nbsp;('&gt;=',&nbsp;'6.3'),&nbsp;'capTCC':&nbsp;'X7R'})<br>
+&nbsp;<br>
+&nbsp;&nbsp;for&nbsp;r&nbsp;in&nbsp;results:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(r['model_name'],&nbsp;r['lib'])</span></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="AnalysisModelManager-__new__"><strong>__new__</strong></a>(*args, **kwargs)</dt><dd><span class="code">Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;<a href="builtins.html#object">object</a>.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-get_manager"><strong>get_manager</strong></a>(...)</dt><dd><span class="code"><a href="#-get_manager">get_manager</a>()&nbsp;-&gt;&nbsp;amm.<a href="#AnalysisModelManager">AnalysisModelManager</a><br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;singleton&nbsp;Analysis&nbsp;Model&nbsp;Manager&nbsp;(AMM)&nbsp;instance.<br>
+&nbsp;<br>
+Retrieves&nbsp;the&nbsp;global&nbsp;manager&nbsp;<a href="builtins.html#object">object</a>&nbsp;used&nbsp;to&nbsp;load,&nbsp;organize,&nbsp;and&nbsp;access&nbsp;device&nbsp;analysis&nbsp;models&nbsp;(VRM,&nbsp;IC,&nbsp;inductor,&nbsp;resistor,&nbsp;capacitor,&nbsp;etc.)&nbsp;from&nbsp;AMM&nbsp;library&nbsp;files.&nbsp;Use&nbsp;this&nbsp;to&nbsp;access&nbsp;the&nbsp;AMM&nbsp;API&nbsp;for&nbsp;managing&nbsp;component&nbsp;models&nbsp;in&nbsp;your&nbsp;project.<br>
+&nbsp;<br>
+Returns<br>
+&nbsp;&nbsp;amm.<a href="#AnalysisModelManager">AnalysisModelManager</a>&nbsp;-&nbsp;The&nbsp;singleton&nbsp;AMM&nbsp;manager&nbsp;instance.<br>
+&nbsp;<br>
+Example<br>
+&nbsp;&nbsp;import&nbsp;amm<br>
+&nbsp;<br>
+&nbsp;&nbsp;#&nbsp;Get&nbsp;the&nbsp;AMM&nbsp;manager&nbsp;instance<br>
+&nbsp;&nbsp;mgr&nbsp;=&nbsp;amm.<a href="#-get_manager">get_manager</a>()<br>
+&nbsp;&nbsp;#&nbsp;Load&nbsp;models&nbsp;from&nbsp;library&nbsp;file<br>
+&nbsp;&nbsp;mgr.open_library('C:/models/vrm_models.amm')</span></dd></dl>
+</td></tr></table>
+</body></html>
