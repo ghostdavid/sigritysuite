@@ -6,7 +6,7 @@
 
 ## 资料与文件地图
 
-- [README](README.md)：仓库概览、模块用途索引、模块文档导出方法、各工具的批处理命令行参数，以及 PowerSI 外部启动和内部退出示例。批处理参数说明依据用户提供的工具文档摘录，不属于已实测的 PowerSI 启动行为。
+- [README](README.md)：仓库概览、模块用途索引、模块文档导出方法、各工具的批处理命令行参数，PowerSI 外部启动和内部退出示例，以及通过固定入口在本机传入动态 Python 任务、回报执行步骤的应用集成经验。批处理参数说明依据用户提供的工具文档摘录，不属于已实测的 PowerSI 启动行为。
 - `SigritySuite.<模块名>.html`：Cadence Python 环境导出的模块 API 文档，现收录 `sigrity`、`curvedb`、`mat`、`amm` 和 `diagram`。其中 [sigrity.exit](SigritySuite.sigrity.html#-exit) 说明保存参数和默认值；退出行为按文档记录，未在此次整理中实测。
 
 - [`cmsa3d.html`](cmsa3d.html)：Clarity 3D Workbench 的 Python 命令模块文档。导出方式与其他模块相同。
